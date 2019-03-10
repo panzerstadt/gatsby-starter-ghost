@@ -12,7 +12,7 @@ import { MetaData } from "../components/common/meta";
  *
  */
 const Author = ({ data, location, pageContext }) => {
-    const author = data.ghostAuthor || "dude";
+    const author = data.ghostAuthor;
     const twitterUrl = author.twitter
         ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}`
         : null;
@@ -81,3 +81,23 @@ const Author = ({ data, location, pageContext }) => {
 };
 
 export default Author;
+
+export const pageQuery = graphql`
+    query GhostAuthorSimpleQuery {
+        ghostAuthor(slug: { eq: "tang" }) {
+            ...GhostAuthorFields
+        }
+        allGhostPost(
+            sort: { order: DESC, fields: [published_at] }
+            filter: { authors: { elemMatch: { slug: { eq: "tang" } } } }
+            limit: 10
+            skip: 0
+        ) {
+            edges {
+                node {
+                    ...GhostPostFields
+                }
+            }
+        }
+    }
+`;
