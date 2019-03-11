@@ -1,10 +1,10 @@
 {
   "development": {
     "apiUrl": "https://gatsby-starter-blog-admin.now.sh",
-    "contentApiKey": "5b3e2954a9648d04c52c80821c"
+    "contentApiKey": "9b2e8be9a34d638977f0e51fb5"
   },
   "production": {
     "apiUrl": "https://gatsby-starter-blog-admin.now.sh",
-    "contentApiKey": "5b3e2954a9648d04c52c80821c"
+    "contentApiKey": "9b2e8be9a34d638977f0e51fb5"
   }
 }
